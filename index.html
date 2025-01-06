@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>IS219 Slideshow</title>
 
@@ -14,8 +14,8 @@
     <div id="slideShow">
       <div class="photoHolder">
         <img class="thumbnail" id="photo" src="http://placehold.it/518x389?text=Welcome+to+my+Gallery" alt="Gallery Image"/>
+        <img class="moreIndicator rot90" onclick="toggleDetails()" src="img/more.png" alt="More Content"/>
       </div>
-      <img class="moreIndicator rot90" src="img/more.png" alt="More Content"/>
       <div id="nav">
         <img id="prevPhoto" class='rot180' src="img/arrow.png" alt="Previous Photo"/>
         <img id="nextPhoto" src="img/arrow.png" alt="Next Photo"/>
@@ -28,5 +28,14 @@
 
     </div>
   </div>
+  <script>
+    $('#prevPhoto').click(function() {
+      mCurrentIndex-=2;
+      swapPhoto();
+    });
+    $('#nextPhoto').click(function() {
+      swapPhoto();
+    });
+  </script>
 </body>
 </html>

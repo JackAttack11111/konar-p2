@@ -83,12 +83,28 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 $(document).ready( function() {
 	
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	$('#nextPhoto').position({
+		my: 'right bottom',
+		at: 'right bottom',
+		of: '#nav'
+	});
 	
+	const urlParams = new URLSearchParams(window.location.search);
+
+	for(const [key, value] of urlParams) {
+		console.log(`${key}:${value}`);
+		mUrl = value;
+	}
+	if(mUrl == undefined) {
+		mUrl = 'images.json';
+	}
+
+	fetchJSON();
+
 });
 
 window.addEventListener('load', function() {
-	
+	fetchJSON();
 	console.log('window loaded');
 
 }, false);
@@ -115,4 +131,25 @@ function fetchJSON() {
 	}
 	mRequest.open("GET", mUrl, true);
 	mRequest.send();
+}
+
+function iterateJSON(mJson) {
+	for(x = 0; x < mJson.images.length; x++){
+		mImages[x] = new GalleryImage();
+		mImages[x].location = mJson.images[x].imgLocation;
+		mImages[x].description = mJson.images[x].description;
+		mImages[x].date = mJson.images[x].date;
+		mImages[x].img = mJson.images[x].imgPath;
+	}
+}
+
+function toggleDetails() {
+	if($('.moreIndicator').hasClass('rot90')) {
+		$('.moreIndicator').removeClass('rot90');
+		$('.moreIndicator').addClass('rot270');
+	} else {
+		$('.moreIndicator').removeClass('rot270');
+		$('.moreIndicator').addClass('rot90');
+	}
+	$('.details').slideToggle( 'slow', 'linear');
 }
