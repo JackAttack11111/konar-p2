@@ -77,6 +77,24 @@
             "imgLocation": "Turkey",
             "description": "Istanbul",
             "date": "01/13/2016"
+        },
+        {
+            "imgPath": "img/places/williamsburg.jpg",
+            "imgLocation": "Virginia, United States",
+            "description": "Williamsburg",
+            "date": "06/26/2019"
+        },
+        {
+            "imgPath": "img/places/lighthouse-bar-harbor.jpg",
+            "imgLocation": "Maine, United States",
+            "description": "Bar Harbor",
+            "date": "07/27/2020"
+        },
+        {
+            "imgPath": "img/places/mtfuji.jpg",
+            "imgLocation": "Japan",
+            "description": "Mount Fuji",
+            "date": "02/07/1995"
         }
   ]
 }
